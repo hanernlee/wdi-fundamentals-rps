@@ -61,16 +61,25 @@ function getWinner(playerMove,computerMove) {
     var computerMove = getComputerMove();
     var winner = getWinner(playerMove,computerMove);
         
-    while ((playerWins < 5) && (computerWins < 5)) {
-        console.log("Player's move is " +playerMove + " Computer's move is " +computerMove);
+ while (playerWins < 5 && computerWins < 5) {
+    var playerMove = getPlayerMove();
+    var computerMove = getComputerMove();
+    var winner = getWinner(playerMove,computerMove);
+        
+        console.log("Player's move is " +playerMove + " while Computer's move is " +computerMove);
         if (winner == 'Player') {
-            console.log('Player beats computer with' +playerMove + ' ' + 'current Player score is' +playerWins + ' ' + 'and Computer score is' +computerWins);
+            playerWins +=1;
+            console.log('Player beats computer with ' +playerMove + ' ' + 'current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
         } else if (winner === 'Computer') {
+            computerWins +=1;
             console.log('Computer beats player with ' +computerMove + ' ' + 'current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
-        } else if ((playerMove === 5) || (computerMove ===5)) {
-            console.log ('Game Over!Player scored' +playerMove +'while Computer scored' +computerMove);
+        } else if (playerMove == computerMove) {
+            console.log('It\'s a tie!');
+            
+        } if ((playerWins === 5) || (computerWins ===5)) {
+        console.log ('Game Over!Player scored ' +playerWins +' while Computer scored ' +computerWins);
         }
-    return [playerWins, computerWins];
+        return [playerWins, computerWins];
     }
 }
 
