@@ -69,13 +69,13 @@ while ((playerWins < 5) && (computerWins < 5)) {
         
     } else if (winner === "Player") {
         playerWins +=1;
-        console.log('Player wins by choosing ' +playerMove + ' while computer chose ' +computerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
+        console.log('Player wins this round by choosing ' +playerMove + ' while computer chose ' +computerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
         
     } else if (winner === "Computer") {
         computerWins +=1;
-        console.log('Computer wins by choosing ' +computerMove + ' while player chose ' +playerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
+        console.log('Computer wins this round by choosing ' +computerMove + ' while player chose ' +playerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
     } if ((playerWins === 5) || (computerWins ===5)) {
-        console.log ('Game Over! Player scored ' +playerWins +' while Computer scored ' +computerWins + '. The winner is ' +winner);
+        console.log ('Game Over! Player scored ' +playerWins +' while Computer scored ' +computerWins + '. The winner of the game is ' +winner);
         }
 }
     return [playerWins, computerWins];
