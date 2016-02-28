@@ -43,40 +43,41 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     if (playerMove === computerMove) {
-      winner ="It's a tie";
+      winner = "The result is a tie!";
     } else if ((playerMove === 'rock' && computerMove === 'scissors') || (playerMove === 'paper' && computerMove === 'rock') || (playerMove === 'scissors' && computerMove === 'paper')) {
-      winner = 'Player';
+      winner = "Player";
         } else {
-      winner = 'Computer';
+      winner = "Computer";
     }
         return winner;
     }
 
-    function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
-    var playerWins = 0;
-    var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-        
- while (playerWins < 5 && computerWins < 5) {
+function playToFive() {
+console.log("Let's play Rock, Paper, Scissors");
+var playerWins = 0;
+var computerWins = 0;
+// Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
+// Call function playToFive() to run game
+    
+while ((playerWins < 5) && (computerWins < 5)) {
     var playerMove = getPlayerMove();
     var computerMove = getComputerMove();
     var winner = getWinner(playerMove,computerMove);
+   
+    if (playerMove === computerMove) {
+        console.log("The result is a tie! You both threw " +playerMove +' Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
         
-        console.log("Player's move is " +playerMove + " while Computer's move is " +computerMove);
-        if (winner == 'Player') {
-            playerWins +=1;
-            console.log('Player beats computer with ' +playerMove + ' ' + 'current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
-        } else if (winner === 'Computer') {
-            computerWins +=1;
-            console.log('Computer beats player with ' +computerMove + ' ' + 'current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
-        } else if (playerMove == computerMove) {
-            console.log('It\'s a tie!');
-            
-        } if ((playerWins === 5) || (computerWins ===5)) {
-        console.log ('Game Over!Player scored ' +playerWins +' while Computer scored ' +computerWins);
+    } else if (winner === "Player") {
+        playerWins +=1;
+        console.log('Player wins by choosing ' +playerMove + ' while computer chose ' +computerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
+        
+    } else if (winner === "Computer") {
+        computerWins +=1;
+        console.log('Computer wins by choosing ' +computerMove + ' while player chose ' +playerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
+    } if ((playerWins === 5) || (computerWins ===5)) {
+        console.log ('Game Over! Player scored ' +playerWins +' while Computer scored ' +computerWins + '. The winner is ' +winner);
         }
-        return [playerWins, computerWins];
-    }
+}
+    return [playerWins, computerWins];
 }
 
