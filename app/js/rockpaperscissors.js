@@ -81,3 +81,31 @@ while ((playerWins < 5) && (computerWins < 5)) {
     return [playerWins, computerWins];
 }
 
+function playTo(x) {
+console.log("Let's play Rock, Paper, Scissors");
+var playerWins = 0;
+var computerWins = 0;
+// Function playTo(x) allows us to play Rock Paper Scissors until either the player or the computer has won x times. 
+// Call function playTo(x) to run game (eg. playTo(4))
+    
+while ((playerWins < x) && (computerWins < x)) {
+    var playerMove = getPlayerMove();
+    var computerMove = getComputerMove();
+    var winner = getWinner(playerMove,computerMove);
+   
+    if (playerMove === computerMove) {
+        console.log("The result is a tie! You both threw " +playerMove +' Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
+        
+    } else if (winner === "Player") {
+        playerWins +=1;
+        console.log('Player wins this round by choosing ' +playerMove + ' while computer chose ' +computerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
+        
+    } else if (winner === "Computer") {
+        computerWins +=1;
+        console.log('Computer wins this round by choosing ' +computerMove + ' while player chose ' +playerMove  + '. Current Player score is ' +playerWins + ' ' + 'and Computer score is ' +computerWins);
+    } if ((playerWins === x) || (computerWins === x)) {
+        console.log ('Game Over! Player scored ' +playerWins +' while Computer scored ' +computerWins + '. The winner of the game is ' +winner);
+        }
+}
+    return [playerWins, computerWins];
+}
